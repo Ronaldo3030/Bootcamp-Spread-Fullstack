@@ -1,4 +1,5 @@
 const url = "https://aws.random.cat/meow"
+const carregamento = document.getElementById('carregamento')
 
 window.onload = async () => {
     let imgCat = document.getElementById('imgCat')
@@ -7,7 +8,11 @@ window.onload = async () => {
 
 const changeCat = async (id) => {
     let imgCat = document.getElementById(id)
+    imgCat.style.display = "none"
+    carregamento.style.display = "block"
     imgCat.src = await consultaApi(url)
+    imgCat.style.display = "block"
+    carregamento.style.display = "none"
 }
 
 async function consultaApi(url) {
